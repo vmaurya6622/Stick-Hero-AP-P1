@@ -2,30 +2,30 @@ package com.mycompany.vishal;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import java.io.IOException;
-
 import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
-import javafx.scene.transform.Rotate;
 
 public class MainGamePlayEngine {
     private static String enteredName;
@@ -77,7 +77,7 @@ public class MainGamePlayEngine {
     private boolean hitsPillar = false;
     private Timeline cherryTimeline;
     private Timeline pillarTimeline;
-
+    MediaPlayer mediaPlayer;
     public static void setEnteredName(String name) {
         enteredName = name;
         System.out.println("Reached here");
@@ -91,7 +91,7 @@ public class MainGamePlayEngine {
     @FXML
     private void initialize() {
         System.out.println("Now Here");
-
+        music();
         pane.setOnMousePressed(this::extendStick);
         pane.setOnMouseReleased(this::releaseStick);
 
@@ -139,7 +139,7 @@ public class MainGamePlayEngine {
         }
     }
 
-    private Line CreateStick(){
+    Line CreateStick(){
         Line newstick = new Line(initialX, initialY, initialX, initialY); // Initial stickman position
         newstick.setStrokeWidth(stickWidth);    // Set the desired width
         return newstick;
@@ -331,10 +331,10 @@ public class MainGamePlayEngine {
     }
 
     private void gameOver(double translationDistanceY){
+        lostmusic();
         TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(2), imageView);
         translateTransition2.setToY(translationDistanceY);
         translateTransition2.play();
-
         pane.removeEventHandler(MouseEvent.MOUSE_PRESSED, this::extendStick);
         pane.removeEventHandler(MouseEvent.MOUSE_RELEASED, this::releaseStick);
 
@@ -370,6 +370,7 @@ public class MainGamePlayEngine {
                     eatsCherry = true;
                     cherryTimeline.stop();
                     increaseCherryText();
+                    cherryMusic();
                     imageViewCherry.setLayoutX(-50);
                     System.out.println("Cherry Collected...");
                 }
@@ -403,6 +404,28 @@ public class MainGamePlayEngine {
             pillarTimeline.setCycleCount(Timeline.INDEFINITE);
             pillarTimeline.play();
         }
-    }
 
+    }
+    public void lostmusic() {
+        String currentDirectory = System.getProperty("user.dir");
+        String s = currentDirectory + System.getProperty("file.separator") + "GameOver.mp3";
+        Media h = new Media(Paths.get(s).toUri().toString());
+        mediaPlayer = new MediaPlayer(h);
+        mediaPlayer.play();
+    }
+    MediaPlayer n;
+    public void cherryMusic() {
+        String currentDirectory = System.getProperty("user.dir");
+        String s = currentDirectory + System.getProperty("file.separator") + "cherriesCollected.mp3";
+        Media h = new Media(Paths.get(s).toUri().toString());
+        n = new MediaPlayer(h);
+        n.play();
+    }
+    public void music() {
+//        String s = "C:\\Users\\visha\\OneDrive - indraprashtha institute of information technology\\Desktop\\vishal\\vishal\\src\\main\\java\\com\\mycompany\\vishal\\fullGame.mp3";
+//        Media h = new Media(Paths.get(s).toUri().toString());
+//        MediaPlayer mediaPlayer = new MediaPlayer(h);
+//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//        mediaPlayer.play();
+    }
 }

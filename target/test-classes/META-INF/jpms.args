@@ -1,0 +1,4 @@
+--patch-module
+com.mycompany.vishal=_
+--add-reads
+com.mycompany.vishal=ALL-UNNAMED
