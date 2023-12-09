@@ -7,8 +7,8 @@ Project - 01 Advanced Programming
 @Subham Maurya 2022510  +subham22510@iiitd.ac.in
 
 Instructions :
-1. Open Intelli Idea Ide and open the Project.
-2. Add the required javafx repo in project structure.
+1. Open Intellij Idea Ide / or any other JAVA-IDE and open the Project.
+2. Add the required javafx libraries in project structure for better Results.
 3. Go to src/App.java
 4. Run the File App.java
 5. Now enter your name and continue then click "play"
