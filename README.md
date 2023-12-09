@@ -12,10 +12,10 @@ Instructions :
 3. Go to src/App.java
 4. Run the File App.java
 5. Now enter your name and continue then click "play"
-6. now game will run!
-7. click on the screen the stick will raise and unpress the button to lay it down the track.
-8. We have also added the function to walk upside down too, just click again when the character is on the stick 
-9. It will move down the stick to collect cherries
+6. Game will run!
+7. Click on the screen the stick will raise and release the button to lay it down the track to walk over the stick to the plarform.
+8. We have also added the function to walk upside down too, just click again when the character is on the stick.
+9. It will move down the stick to collect cherries.
 
 
                                                                      Thanks
