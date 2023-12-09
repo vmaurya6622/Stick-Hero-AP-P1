@@ -17,4 +17,4 @@ Instructions :
 9. It will move down the stick to collect cherries
 
 
-                                                            Thanks
+                                                                                  Thanks
