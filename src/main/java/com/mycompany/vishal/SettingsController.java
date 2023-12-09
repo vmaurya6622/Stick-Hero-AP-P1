@@ -6,7 +6,7 @@ package com.mycompany.vishal;
 
 /**
  *
- * @author Vishal Kumar Maurya
+ * @author visha
  */
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -49,15 +49,31 @@ public class SettingsController {
     @FXML
     private Text levelText;
 
+    private static double speed ;
+
+    private void setSpeed(){
+        speed = levelSlider.getValue();
+    }
+
+    public static double getSpeed(){
+        return speed;
+    }
+
     @FXML
     private void initialize() {
         System.out.println("Now i am in SettingsController.java");
         restartButton.setOnAction(event -> {
+            try {
+                App.switchScene("MainPlayScreen");
+            } catch (IOException e) {
+                System.out.println("Error : " + e);
+                e.printStackTrace();
+            }
         });
 
         goBackButton.setOnAction(event -> {
             try {
-                App.demo("MainPlayScreen");
+                App.switchScene("MenuScreen");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -71,7 +87,7 @@ public class SettingsController {
         GoToHomeScreen.setOnAction(event -> {
             System.out.println("Moving To Home Screen");
             try {
-                App.demo("MenuScreen");
+                App.switchScene("MenuScreen");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -86,6 +102,8 @@ public class SettingsController {
         levelSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             double value = newValue.doubleValue();
             levelText.setText("Level: " + value);
+            setSpeed();
+            MainGamePlayEngine.setDifficulty();
         });
     }
 }
