@@ -6,7 +6,7 @@ package com.mycompany.vishal;
 
 /**
  *
- * @author visha
+ * @author vishal kumar maurya
  */
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -20,13 +20,13 @@ public class MenuScreenController {
 
     @FXML
     private Button playButton;
-    
+
     @FXML
     private Button highestScoreButton;
-    
+
     @FXML
     private Button settingsButton;
-    
+
     @FXML
     private Label titleLabel;
 
@@ -42,7 +42,7 @@ public class MenuScreenController {
                 ex.printStackTrace();
             }
         });
-        
+
 
         highestScoreButton.setOnAction(event -> {
             System.out.println("Highest score button clicked!");
@@ -52,7 +52,7 @@ public class MenuScreenController {
                 ex.printStackTrace();
             }
         });
-        
+
         settingsButton.setOnAction(event -> {
             System.out.println("Settings button clicked!");
             try {

@@ -1,4 +1,5 @@
 com\mycompany\vishal\PrimaryController.class
+com\mycompany\vishal\HighestScoreController.class
 com\mycompany\vishal\MainGamePlayEngine$1.class
 com\mycompany\vishal\SettingsController.class
 com\mycompany\vishal\GameEndController.class
@@ -6,4 +7,3 @@ com\mycompany\vishal\MainGamePlayEngine.class
 com\mycompany\vishal\MenuScreenController.class
 module-info.class
 com\mycompany\vishal\App.class
-com\mycompany\vishal\MainGamePlayEngine$2.class

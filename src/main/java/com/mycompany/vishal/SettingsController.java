@@ -6,16 +6,17 @@ package com.mycompany.vishal;
 
 /**
  *
- * @author visha
+ * @author vishal kumar maurya
  */
-import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 
 public class SettingsController {
 
@@ -35,13 +36,7 @@ public class SettingsController {
     private Button GoToHomeScreen;
 
     @FXML
-    private CheckBox dontSaveCheckBox;
-
-    @FXML
     private ImageView settingsIcon;
-
-    @FXML
-    private CheckBox muteMusicCheckBox;
 
     @FXML
     private Slider levelSlider;
@@ -91,12 +86,6 @@ public class SettingsController {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        });
-
-        dontSaveCheckBox.setOnAction(event -> {
-        });
-
-        muteMusicCheckBox.setOnAction(event -> {
         });
 
         levelSlider.valueProperty().addListener((observable, oldValue, newValue) -> {

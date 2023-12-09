@@ -16,7 +16,7 @@ import static java.lang.System.exit;
 
 /**
  *
- * @author visha
+ * @author vishal kumar maurya
  */
 public class HighestScoreController {
     @FXML
