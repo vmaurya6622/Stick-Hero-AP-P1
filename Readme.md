@@ -12,6 +12,7 @@ Project - 01 Advanced Programming
 2. **BONUS** we have also added a slider to adjust difficulty level in the game in the settings menu
 	where 1 is the lowest or easiest and 10 is highest and hardest.
 
+
 Instructions :
 1. Open Intellij Idea Ide / or any other JAVA-IDE and open the Project.
 2. Add the required javafx libraries in project structure for better Results.
